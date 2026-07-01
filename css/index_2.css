@@ -1,0 +1,338 @@
+/* 字體引入設定 */
+@font-face {
+    font-family: 'NCL Monster Beast Demo';
+    src: local('NCL Monster Beast Demo');
+}
+@font-face {
+    font-family: 'Taipei Sans TC Beta';
+    src: local('Taipei Sans TC Beta');
+}
+
+/* 基礎全域設定 */
+:root {
+    --text-dark: #333333;
+    --text-light: #666666;
+    --border-color: #cccccc;
+    --active-orange: #e26f63;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+
+/* 修改響應式容器：強制填滿全螢幕 */
+.dashboard-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh; /* 強制高度為螢幕的 100% */
+    /* 已移除 max-height 與 max-width 限制 */
+    background-image: url('../img/background_3.jpg');
+    background-size: 100% 100%; /* 強制背景圖拉伸，完美貼合視窗不留黑邊 */
+    background-position: center;
+    background-repeat: no-repeat;
+    container-type: size;
+    overflow: hidden;
+}
+
+.en-font { font-family: 'NCL Monster Beast Demo', sans-serif; }
+.zh-font { font-family: 'Taipei Sans TC Beta', sans-serif; }
+
+/* 左上角標籤文字定位 */
+.title-badge {
+    position: absolute;
+    top: 9.8%;
+    left: 3%;
+    width: 21.5%;
+    height: 5.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5cqw;
+    font-weight: bold;
+    color: var(--text-dark);
+    letter-spacing: 0.1cqw;
+}
+
+/* 年份導覽列 */
+.nav-bar {
+    position: absolute;
+    top: 10.4%;
+    left: 25%;
+    width: 68%;
+    display: flex;
+    gap: 0.5cqw;
+    align-items: center;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5cqw 1.2cqw;
+    font-size: 1.1cqw;
+    color: var(--text-light);
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05cqw;
+}
+
+.nav-btn:hover { color: var(--active-orange); }
+.nav-btn.active { background-color: var(--active-orange); color: white; }
+
+/* 左側大圖表框 (改為海報展示區) */
+.left-panel {
+    position: absolute;
+    top: 27%;
+    left: 3.3%;
+    width: 19.3%;
+    height: 45.5%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 海報圖片樣式 */
+.poster-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain; /* 確保海報完整顯示且不變形 */
+}
+
+/* 組別標題定位 */
+.title-group { position: absolute; }
+.title-creative { top: 20%; left: 26%; }
+.title-theoretical { top: 20%; left: 62.7%; }
+
+.section-title {
+    font-size: 1.5cqw;
+    font-weight: bold;
+    color: var(--text-dark);
+    line-height: 1.2;
+    letter-spacing: 0.1cqw;
+}
+.section-subtitle {
+    font-size: 0.75cqw;
+    color: var(--text-light);
+    letter-spacing: 0.05cqw;
+    margin-top: 0.2cqw;
+}
+
+/* 甜甜圈圖 SVG 容器排版 */
+.pie-chart {
+    position: absolute;
+    width: 15cqw;
+    height: 15cqw;
+    background-color: transparent;
+}
+.pie-creative { top: 27%; left: 30%; }
+.pie-theoretical { top: 27%; left: 65%; }
+
+/* 圖例清單排版 */
+.legend-list {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 讓圖例永遠垂直置中於圖表旁 */
+    height: 10.8cqw; /* 對齊圖表高度 */
+    gap: 0.8cqw;
+}
+.legend-creative { top: 29.5%; left: 47.5%; }
+.legend-theoretical { top: 29.5%; left: 81.0%; }
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: var(--text-dark);
+    font-size: 0.85cqw;
+    letter-spacing: 0.05cqw;
+}
+
+.color-dot {
+    width: 0.9cqw;
+    height: 0.9cqw;
+    border-radius: 50%;
+    margin-right: 0.6cqw;
+    border: 1px solid #aaa; /* 微調邊框讓白色圓點也能清楚顯示 */
+    flex-shrink: 0;
+}
+
+/* 下方論文一覽區標題 */
+.list-title {
+    position: absolute;
+    font-size: 1.2cqw;
+    font-weight: bold;
+    color: var(--text-dark);
+    letter-spacing: 0.1cqw;
+}
+.title-papers-creative { top: 57%; left: 28%; }
+.title-papers-theoretical { top: 57%; left: 64%; }
+
+/* 下方論文文字內容框 */
+.paper-box {
+    position: absolute;
+    height: 25%;
+    background-color: transparent;
+    overflow-y: auto; 
+    padding: 0.8cqw 1cqw;
+    box-sizing: border-box;
+    /* 改為 Flexbox 排版，讓膠囊標籤可以自動換行 */
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 0.6cqw;
+}
+.box-papers-creative { top: 59%; left: 27%; width: 28.5%; }
+.box-papers-theoretical { top: 59%; left: 63%; width: 28.5%; }
+
+/* 膠囊狀論文標籤設計 */
+.paper-chip {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 50px;
+    padding: 0.4cqw 0.8cqw;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%; /* 防止過長文字撐破容器 */
+}
+
+.paper-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+}
+
+/* 標籤內的分類小圓點 */
+.paper-chip-dot {
+    width: 0.8cqw;
+    height: 0.8cqw;
+    border-radius: 50%;
+    margin-right: 0.5cqw;
+    border: 1px solid #aaa;
+    flex-shrink: 0;
+}
+
+/* 標籤內的論文文字 */
+.paper-chip-text {
+    font-size: 0.85cqw;
+    color: var(--text-dark);
+    letter-spacing: 0.05cqw;
+    line-height: 1.3;
+    white-space: normal; /* 允許文字太長時在膠囊內換行 */
+}
+
+/* 論文單行樣式設計 */
+.paper-item {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.85cqw;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 0.5cqw;
+    letter-spacing: 0.05cqw;
+}
+.paper-index {
+    font-weight: bold;
+    margin-right: 0.5cqw;
+    color: var(--active-orange);
+    flex-shrink: 0;
+}
+
+/* 卷軸 */
+.paper-box::-webkit-scrollbar {
+    width: 0.4cqw;
+}
+.paper-box::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05); 
+    border-radius: 10px;
+}
+.paper-box::-webkit-scrollbar-thumb {
+    background: #ccc; 
+    border-radius: 10px;
+}
+.paper-box::-webkit-scrollbar-thumb:hover {
+    background: #aaa; 
+}
+
+/* =========================================
+   十年總覽專屬區域樣式
+========================================= */
+.overview-container {
+    position: absolute;
+    top: 21.5%;
+    left: 6%;         /* 貼齊原本海報的左邊緣 */
+    width: 86.5%;     /* 涵蓋到右側清單的邊緣 */
+    height: 75%;
+    background-color: transparent;
+    z-index: 20; 
+}
+
+/* 創作組 / 理論組 切換按鈕定位 (左側、上下排列) */
+.overview-toggles {
+    position: absolute;
+    top: 5%; 
+    left:-5%;  
+    width: 19%; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 1.5cqw;            
+}
+
+/* 圖片按鈕的基礎設定 */
+.toggle-btn {
+    width: 70%; /* 控制圖片按鈕的寬度比例 */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* 預設(未選取)狀態：稍微半透明縮小，降低視覺層級 */
+    opacity: 0.4;
+    transform: scale(0.99);
+}
+
+/* 滑鼠懸停時的特效 */
+.toggle-btn:hover {
+    opacity: 0.9;
+    transform: scale(1);
+}
+
+/* 點擊選取(Active)時的特效 */
+.toggle-btn.active {
+    opacity: 1; /* 完全清晰不透明 */
+    transform: scale(1); /* 稍微放大凸顯 */
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.4)); /* 加上陰影增加立體感 */
+}
+
+/* 長條圖圖片容器 */
+.bar-chart-wrapper {
+    position: absolute;
+    top: 0%; 
+    left: 15%; /* 🌟 讓出左邊 20% 的空間給按鈕 */
+    width: 86%; /* 剩下的 80% 空間全部給長條圖 */
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-chart-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 確保長條圖完整顯示且不變形 */
+}
+
