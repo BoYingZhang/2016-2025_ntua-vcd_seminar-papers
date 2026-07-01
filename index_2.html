@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研討會論文提交統計資料</title>
+    <link rel="stylesheet" href="./css/index_2.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <div class="title-badge zh-font">研討會論文提交統計資料</div>
+
+    <div class="panel left-panel" id="left-visual-content">
+        <img id="year-poster" src="img/poster_2025.jpg" alt="年度海報" class="poster-img">
+    </div>
+
+        <div class="nav-bar">
+            <button class="nav-btn zh-font active" data-year="all">十年總覽</button>
+            <button class="nav-btn en-font" data-year="2016">2016</button>
+            <button class="nav-btn en-font" data-year="2017">2017</button>
+            <button class="nav-btn en-font" data-year="2018">2018</button>
+            <button class="nav-btn en-font" data-year="2019">2019</button>
+            <button class="nav-btn en-font" data-year="2020">2020</button>
+            <button class="nav-btn en-font" data-year="2021">2021</button>
+            <button class="nav-btn en-font" data-year="2022">2022</button>
+            <button class="nav-btn en-font" data-year="2023">2023</button>
+            <button class="nav-btn en-font" data-year="2024">2024</button>
+            <button class="nav-btn en-font" data-year="2025">2025</button>
+        </div>
+
+        <div class="panel left-panel" id="left-visual-content"></div>
+
+        <div class="title-group title-creative">
+            <div class="section-title zh-font">創作組</div>
+            <div class="section-subtitle en-font">CREATIVE RESEARCH</div>
+        </div>
+        <div class="pie-chart pie-creative" id="creative-chart"></div>
+        <ul class="legend-list legend-creative zh-font" id="creative-legend"></ul>
+
+        <div class="title-group title-theoretical">
+            <div class="section-title zh-font">理論組</div>
+            <div class="section-subtitle en-font">THEORETICAL RESEARCH</div>
+        </div>
+        <div class="pie-chart pie-theoretical" id="theoretical-chart"></div>
+        <ul class="legend-list legend-theoretical zh-font" id="theoretical-legend"></ul>
+
+        <div class="list-title title-papers-creative zh-font">論文一覽</div>
+        <div class="list-title title-papers-theoretical zh-font">論文一覽</div>
+
+        <div class="paper-box box-papers-creative" id="creative-papers"></div>
+        <div class="paper-box box-papers-theoretical" id="theoretical-papers"></div>
+
+        <div class="overview-container" id="overview-container" style="display: none;">
+            <div class="overview-toggles">
+                <img src="./img/創作組_button.png" class="toggle-btn active" data-group="creative" alt="創作組">
+                <img src="./img/理論組_button.png" class="toggle-btn" data-group="theoretical" alt="理論組">
+            </div>
+            <div class="bar-chart-wrapper">
+                <img id="bar-chart-img" src="img/創作組_長條圖.png" alt="長條圖">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/index_2.js"></script>
+</body>
+</html>
